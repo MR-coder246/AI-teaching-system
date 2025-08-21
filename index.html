@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind - Your AI Expert</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Using Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ======== Landing/Upload Page Section ======== -->
+    <div id="upload-page">
+        <header><h1><i class="fa-solid fa-brain"></i> DocuMind</h1></header>
+        <main>
+            <div class="intro-section">
+                <h2>Create an Instant Expert</h2>
+                <p>Upload your PDF and get an AI assistant that knows your document inside and out.</p>
+            </div>
+            <div class="upload-section">
+                <form id="upload-form">
+                    <div id="drop-zone">
+                        <i class="fa-solid fa-file-arrow-up drop-icon"></i>
+                        <p>Drag & Drop Your PDF Here or</p>
+                        <button type="button" id="browse-btn">Browse Files</button>
+                        <input type="file" id="file-input" name="pdfFile" accept=".pdf" hidden>
+                    </div>
+                </form>
+                 <div id="upload-status"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ======== Chat Interface Section (Initially Hidden) ======== -->
+    <div id="chat-interface" class="hidden">
+        <aside class="sidebar">
+            <h3><i class="fa-solid fa-robot"></i> AI Expert On:</h3>
+            <p id="document-name">your-file.pdf</p>
+            <button id="new-doc-btn"><i class="fa-solid fa-rotate-right"></i> Upload New Document</button>
+        </aside>
+        <main class="chat-area">
+            <div id="chat-window">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask a question based on the document...">
+                <button id="send-btn" aria-label="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

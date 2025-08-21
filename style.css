@@ -1,0 +1,300 @@
+/* ======== General Body and typography styles ======== */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-bg: #ffffff;
+    --border-color: #bdc3c7;
+    --drop-zone-bg: #ecf0f1;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --user-msg-bg: #3498db;
+    --ai-msg-bg: #ffffff;
+    --chat-window-bg: #ecf0f1;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ======== Landing/Upload Page Section ======== */
+#upload-page {
+    text-align: center;
+    background-color: var(--light-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 90%;
+    transition: transform 0.3s ease-out;
+}
+
+#upload-page header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.intro-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#drop-zone {
+    border: 3px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#drop-zone.dragover {
+    border-color: var(--primary-color);
+    background-color: #f8f9fa;
+    transform: scale(1.02);
+}
+
+.drop-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#browse-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#browse-btn:hover {
+    background-color: #2980b9;
+}
+
+#upload-status {
+    margin-top: 20px;
+    font-size: 1rem;
+    min-height: 24px;
+    font-weight: 500;
+}
+#upload-status .success { color: var(--success-color); }
+#upload-status .error { color: var(--error-color); }
+#upload-status .loading { color: var(--text-color); }
+
+
+/* ======== Chat Interface Section ======== */
+#chat-interface {
+    display: flex;
+    width: 85vw;
+    height: 90vh;
+    max-width: 1100px;
+    background-color: var(--light-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar h3 {
+    color: #ecf0f1;
+    border-bottom: 1px solid #34495e;
+    padding-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#document-name {
+    background-color: #34495e;
+    padding: 12px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    font-weight: 500;
+}
+
+#new-doc-btn {
+    margin-top: auto;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#new-doc-btn:hover { background-color: #2980b9; }
+
+.chat-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-window {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--chat-window-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    display: flex;
+    gap: 15px;
+    max-width: 80%;
+    align-items: flex-start;
+}
+
+.message .icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.message.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message.user-message .icon {
+    background-color: var(--user-msg-bg);
+}
+
+.message.ai-message {
+    align-self: flex-start;
+}
+.message.ai-message .icon {
+    background-color: var(--secondary-color);
+}
+
+.message .text {
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.message.user-message .text {
+    background-color: var(--user-msg-bg);
+    color: white;
+}
+
+.message.ai-message .text {
+    background-color: var(--ai-msg-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.message.loading .text {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.message.loading .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #888;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.message.loading .dot:nth-child(1) { animation-delay: -0.32s; }
+.message.loading .dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
+
+
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    gap: 10px;
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+#chat-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#send-btn {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+    background-color: #27ae60;
+}
